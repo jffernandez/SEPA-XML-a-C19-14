@@ -29,7 +29,8 @@
 				<xsl:value-of select="concat(sepa:CdtrSchmeId/sepa:Id/sepa:PrvtId/sepa:Othr/sepa:Id, substring($espacios, 1, 35 - string-length(sepa:CdtrSchmeId/sepa:Id/sepa:PrvtId/sepa:Othr/sepa:Id)))"/>
 				<xsl:value-of select="concat(substring(sepa:ReqdColltnDt, 1, 4), substring(sepa:ReqdColltnDt, 6, 2), substring(sepa:ReqdColltnDt, 9, 2))"/>
 				<xsl:value-of select="concat(sepa:Cdtr/sepa:Nm, substring($espacios, 1, 70 - string-length(sepa:Cdtr/sepa:Nm)))"/>
-				<xsl:value-of select="substring($espacios, 1, 142)"/>
+				<xsl:value-of select="substring($espacios, 1, 140)"/>
+				<xsl:text>ES</xsl:text>
 				<xsl:value-of select="concat(sepa:CdtrAcct/sepa:Id/sepa:IBAN, substring($espacios, 1, 34 - string-length(sepa:CdtrAcct/sepa:Id/sepa:IBAN)))"/>
 				<xsl:value-of select="substring($espacios, 1, 301)"/>
 				<xsl:text>&#xA;</xsl:text>
@@ -49,7 +50,8 @@
 					<xsl:value-of select="sepa:DbtrAgt/sepa:FinInstnId/sepa:BIC"/>
 					<xsl:value-of select="concat(translate(translate(sepa:Dbtr/sepa:Nm, 'Ñ', 'N'), 'Ç', 'C'), substring($espacios, 1, 70 - string-length(sepa:Dbtr/sepa:Nm)))"/>
 					<xsl:value-of select="substring($espacios, 1, 142)"/>
-					<xsl:value-of select="substring($espacios, 1, 72)"/>
+					<xsl:text>1</xsl:text>
+					<xsl:value-of select="substring($espacios, 1, 71)"/>
 					<xsl:text>A</xsl:text>
 					<xsl:value-of select="concat(sepa:DbtrAcct/sepa:Id/sepa:IBAN, substring($espacios, 1, 34 - string-length(sepa:DbtrAcct/sepa:Id/sepa:IBAN)))"/>
 					<xsl:text>    </xsl:text>
