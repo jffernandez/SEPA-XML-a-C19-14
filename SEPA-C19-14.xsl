@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:sepa="urn:iso:std:iso:20022:tech:xsd:pain.008.001.02">
-	<xsl:output method="text" indent="no"/>
+	<xsl:output method="text" indent="no" media-type="text/plain" encoding="Windows-1252"/>
 	<xsl:param name="espacios">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          '</xsl:param>
 	<xsl:param name="ceros">00000000000000000000000000000000000000000000</xsl:param>
 	<xsl:template match="sepa:Document">
