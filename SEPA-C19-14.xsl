@@ -16,8 +16,9 @@
 			<xsl:text>PRE</xsl:text>
 			<xsl:value-of select="concat(substring($dt, 1, 4), substring($dt, 6, 2), substring($dt, 9, 2))"/>
 			<xsl:value-of select="concat(substring($dt, 12, 2), substring($dt, 15, 2), substring($dt, 18, 2))"/>
-			<xsl:text>00234</xsl:text>
-			<xsl:value-of select="concat('0000', substring(sepa:GrpHdr/sepa:MsgId, 1, 4), substring(sepa:GrpHdr/sepa:MsgId, 6), substring($ceros, 1, 10 - string-length(sepa:GrpHdr/sepa:MsgId)))"/>
+			<xsl:text>00234</xsl:text><!-- milisegundos -->
+			<xsl:variable name="id_fichero" select="concat(sepa:GrpHdr/sepa:MsgId, substring($espacios, 1, 13))"/> 
+			<xsl:value-of select="substring($id_fichero, 1, 13)"/>
 			<xsl:value-of select="substring(sepa:PmtInf/sepa:CdtrAcct/sepa:Id/sepa:IBAN, 5, 8)"/>
 			<xsl:value-of select="substring($espacios, 1, 434)"/>
 			<xsl:text>&#xA;</xsl:text>
