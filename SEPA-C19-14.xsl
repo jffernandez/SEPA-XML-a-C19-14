@@ -21,7 +21,7 @@
 			<xsl:value-of select="substring($id_fichero, 1, 13)"/>
 			<xsl:value-of select="substring(sepa:PmtInf/sepa:CdtrAcct/sepa:Id/sepa:IBAN, 5, 8)"/>
 			<xsl:value-of select="substring($espacios, 1, 434)"/>
-			<xsl:text>&#xA;</xsl:text>
+			<xsl:text>&#xD;&#xA;</xsl:text>
 			<xsl:for-each select="sepa:PmtInf">
 				<!-- Cabecera de acreedor -->
 				<xsl:text>02</xsl:text>
@@ -34,7 +34,7 @@
 				<xsl:text>ES</xsl:text>
 				<xsl:value-of select="concat(sepa:CdtrAcct/sepa:Id/sepa:IBAN, substring($espacios, 1, 34 - string-length(sepa:CdtrAcct/sepa:Id/sepa:IBAN)))"/>
 				<xsl:value-of select="substring($espacios, 1, 301)"/>
-				<xsl:text>&#xA;</xsl:text>
+				<xsl:text>&#xD;&#xA;</xsl:text>
 				<xsl:for-each select="sepa:DrctDbtTxInf">
 					<!-- Registros individuales -->
 					<xsl:text>03</xsl:text>
@@ -58,7 +58,7 @@
 					<xsl:text>    </xsl:text>
 					<xsl:value-of select="concat(sepa:RmtInf/sepa:Ustrd, substring($espacios, 1, 140 - string-length(sepa:RmtInf/sepa:Ustrd)))"/>
 					<xsl:value-of select="substring($espacios, 1, 19)"/>
-					<xsl:text>&#xA;</xsl:text>
+					<xsl:text>&#xD;&#xA;</xsl:text>
 				</xsl:for-each>
 				<!-- Total acreedor/fecha -->
 				<xsl:text>04</xsl:text>
@@ -69,7 +69,7 @@
 				<xsl:value-of select="concat(substring($ceros, 1, 8 - string-length(sepa:NbOfTxs)), sepa:NbOfTxs)"/>
 				<xsl:value-of select="concat(substring($ceros, 1, 10 - string-length(sepa:NbOfTxs + 2)), sepa:NbOfTxs + 2)"/>
 				<xsl:value-of select="substring($espacios, 1, 520)"/>
-				<xsl:text>&#xA;</xsl:text>
+				<xsl:text>&#xD;&#xA;</xsl:text>
 				<!-- Total acreedor -->
 				<xsl:text>05</xsl:text>
 				<xsl:value-of select="concat(sepa:CdtrSchmeId/sepa:Id/sepa:PrvtId/sepa:Othr/sepa:Id, substring($espacios, 1, 35 - string-length(sepa:CdtrSchmeId/sepa:Id/sepa:PrvtId/sepa:Othr/sepa:Id)))"/>
@@ -78,7 +78,7 @@
 				<xsl:value-of select="concat(substring($ceros, 1, 8 - string-length(sepa:NbOfTxs)), sepa:NbOfTxs)"/>
 				<xsl:value-of select="concat(substring($ceros, 1, 10 - string-length(sepa:NbOfTxs + 3)), sepa:NbOfTxs + 3)"/>
 				<xsl:value-of select="substring($espacios, 1, 528)"/>
-				<xsl:text>&#xA;</xsl:text>
+				<xsl:text>&#xD;&#xA;</xsl:text>
 			</xsl:for-each>
 			<!-- Total fichero -->
 			<xsl:text>99</xsl:text>
@@ -87,7 +87,7 @@
 			<xsl:value-of select="concat(substring($ceros, 1, 8 - string-length(sepa:GrpHdr/sepa:NbOfTxs)), sepa:GrpHdr/sepa:NbOfTxs)"/>
 			<xsl:value-of select="concat(substring($ceros, 1, 10 - string-length(sepa:GrpHdr/sepa:NbOfTxs + 5)), sepa:GrpHdr/sepa:NbOfTxs + 5)"/>
 			<xsl:value-of select="substring($espacios, 1, 563)"/>
-			<xsl:text>&#xA;</xsl:text>
+			<xsl:text>&#xD;&#xA;</xsl:text>
 		</xsl:for-each>
 	</xsl:template>
 </xsl:stylesheet>
